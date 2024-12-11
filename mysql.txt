@@ -1,0 +1,43 @@
+show databases;
+
+create database jsp;
+
+use jsp;
+
+show tables;
+
+create table member1028(
+	mid int primary key auto_increment,
+    name varchar(32) not null,
+    uid varchar(30) not null,
+    upw varchar(30) not null,
+    phone varchar(12)
+);
+
+insert into member1028 (name, uid, upw, phone) values("ljs", "luoon", "1234", "01065478825");
+insert into member1028 (name, uid, upw, phone) values("ljs2", "luoon2", "12342", "01065478826");
+insert into member1028 (name, uid, upw, phone) values("ljs3", "luoon3", "12343", "01065478827");
+
+select * from member1028;    
+
+
+
+
+CREATE TABLE qna (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    author VARCHAR(50) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+	
+select * from qna;
+
+
+SELECT * FROM qna ORDER BY created_at DESC;
+
+ALTER TABLE qna ADD COLUMN is_private BOOLEAN DEFAULT FALSE;
+ALTER TABLE qna ADD COLUMN password VARCHAR(4);
+
+SELECT id, title, content, author, is_private, password FROM qna;
+
